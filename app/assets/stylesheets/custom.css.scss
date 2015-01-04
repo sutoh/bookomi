@@ -1,6 +1,66 @@
 @import "bootstrap";
 
 body{
-	background-color : #36465D;
+  background-color : #36465D;
+  margin: 0 auto;
+  padding: 0px;
+  font-size: 100%;
+  color: #333333;
+  font-size: 12px;
+  line-height: 120%;
+  font-family: "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Osaka, "ヒラギノ角ゴ Pro W3", sans-serif;
+}
+table {
+  border-collapse: collapse;
+}
+td {
+  word-break: break-all;
+}
+ul, li {
+  list-style: none;
+}
+/* tips */
+.tip.common-black {
+  width: 50px;
+  border: #000 solid 1px;
+  border-radius: 3px;
+  font-size: 11px;
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-color: #474D4D;
+  padding: 1px;
+}
+.tip {
+  color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 2px 0;
+  padding-right: 2px;
+  margin: 2px;
+  overflow: hidden;
+  width: 48px;
+  line-height: 12px;
+  text-align: center;
+  cursor: default;
+  display: inline-block;
+  background-color: #373737;
+}
+
+
+/* tag link*/
+a.tag,
+a.tag:link{
+    color:#000;
+    text-decoration:underline;
+}
+
+/* tag-block */
+#tag-block {
+  margin-left: 1em;
+}
+.tag-list li {
+  float: left;
+  padding: 2px 8px 4px 0;
+  white-space: nowrap;
 }
 
