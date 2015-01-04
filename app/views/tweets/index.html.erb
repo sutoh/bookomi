@@ -1,3 +1,6 @@
+<% content_for(:header) do %>
+  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<% end %>
 <p id="notice"><%= notice %></p>
 
 <% @tweets.each do |tweet| %>
@@ -6,6 +9,7 @@
     <li class="post-date"><%= distance_of_time_in_words_to_now(tweet.tweeted_at) %>前 (<%= tweet.tweeted_at %>)</li>
   </ul>
   <img src="<%= tweet.image_urls.split(',').first %>":>
+  <%= render partial: 'embed', locals: { tweet: tweet } %>
   <div class="detail-link"><%= link_to ' 詳しく >>', tweet %></div>
   <ul class="tw-info">
     <li class="name"><%= tweet.user_name %></li>
