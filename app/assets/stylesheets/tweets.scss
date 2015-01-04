@@ -15,15 +15,17 @@
     border-radius: 40px;
     -webkit-border-radius: 40px;
     -moz-border-radius: 40px;
-    background-color : #36465D;
+    background-color : #EAE4DD;
+    color : #ff6600;
     font-size : 20px;
     float : left;
     width : 140px;
+    height : 50px;
+    padding-top : 15px;
     left:50%;
     margin-left:-70px;
     border: 3px solid #fff;
     z-index: 9999;
-    color : #fff; 
     text-decoration: none;
     filter:alpha(opacity=80);
     -moz-opacity: 0.8;
@@ -31,18 +33,19 @@
 }
 
 .float-post:link {
-    color:#fff;
+    color : #ff6600;
     text-decoration: none;
 }
 .float-post:visited {
-    color:#fff;
+    color : #ff6600;
     text-decoration: none;
 }
 
 .tw-container{
   float: left;
   clear: both;
-  max-width: 96%;
+  width: 96%;
+  max-width: 400px;
   min-width: 220px;
   margin: 10px auto 0 auto;
   border-style: solid;
@@ -63,42 +66,51 @@
   border:none;
 }
 
+.tw-item{
+  float : left;
+  width: 100%;
+  border:none;  
+}
+
 .tw-info{
-  background-color: #F8F4EF;
+  background-color: #EBF0F3;
   float: left;
   width: 100%;
   margin-top : 10px;
+  border-style : solid;
+  border-width : 1px;
+  border-top-color : #F8F4EF;
+  border-left-color : #F8F4EF;
+  border-right-color : #F8F4EF;
+  border-bottom-color : #ffcc99;
+  padding : 5px;
+  mergin : 5px;
 }
 
 .tw-info .name{
-  margin-left : 2%;
-background-color : red;
-
+  text-align : left;
   float : left;
   width : 50%;
   font-size : 12px;
-  color : #B1BBC3;
+  color : #333;
   list-style:none;
 }
 .tw-info .id{
+  text-align : left;
   float : left;
   width : 50%;
   padding-left : 10px;
   font-size : 12px;
-  color : #B1BBC3;
+  color : #333;
   list-style:none;
   }
 
 .tw-info .post-date{
-
-
-background-color : red;
-
-
+  text-align : left;
   float : left;
   width : 100%;
   font-size : 12px;
-  color : #B1BBC3;
+  color : #333;
   list-style:none;
 }
 
@@ -168,4 +180,9 @@ ul.tags li{
   font-size : 14px;
   color : #B1BBC3;
   float : left;
+}
+
+.form-control{
+  max-width : 350px;
+  min-width : 180px;
 }

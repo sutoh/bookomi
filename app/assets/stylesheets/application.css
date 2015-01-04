@@ -21,8 +21,12 @@
 header{
   text-align : center;
   font-family: 'mofuji';
+  vertical-align : top;
+  background-color : #333;
+  height : 60px;
   font-size: 40px;
   color : #ff6600;
+  padding-top : 30px;
 }
 
 header a{
@@ -33,4 +37,15 @@ header a:link {
 }
 header a:visited {
   color : #ff6600;
+}
+
+footer {
+	float : left;
+	width : 100%;
+	height : 100px;
+	text-align : center;
+	background-color : #333;
+	color : #fff;
+	padding-top : 15px;
+	margin-top : 10px;
 }

@@ -8,8 +8,13 @@
   <ul class="tw-info">
     <li class="post-date"><%= distance_of_time_in_words_to_now(tweet.tweeted_at) %>前 (<%= tweet.tweeted_at %>)</li>
   </ul>
-  <img src="<%= tweet.image_urls.split(',').first %>":>
+
+  <% unless tweet.image_urls.empty? %>
+    <img src="<%= tweet.image_urls.split(',').first %>":>
+  <% end %>
+
   <%= render partial: 'embed', locals: { tweet: tweet } %>
+
   <div class="detail-link"><%= link_to ' 詳しく >>', tweet %></div>
   <ul class="tw-info">
     <li class="name"><%= tweet.user_name %></li>
