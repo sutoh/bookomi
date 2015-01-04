@@ -1,0 +1,6 @@
+<div class="tw-item">
+  <blockquote class="twitter-tweet" <%="data-cards=hidden" unless tweet.image_urls.empty?%> lang="ja">
+    <p><%= tweet.tweet %></p> &mdash; <%=tweet.user_name %> (@<%=tweet.screen_name%>)
+    <a href="https://twitter.com/<%=tweet.screen_name%>/status/<%=tweet.tweet_id%>"><%=tweet.tweeted_at.strftime("%Y, %m月 %d")%></a>
+  </blockquote>
+</div>

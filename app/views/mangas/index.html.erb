@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Mangas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tweet</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mangas.each do |manga| %>
+      <tr>
+        <td><%= manga.tweet %></td>
+        <td><%= link_to 'Show', manga %></td>
+        <td><%= link_to 'Edit', edit_manga_path(manga) %></td>
+        <td><%= link_to 'Destroy', manga, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Manga', new_manga_path %>

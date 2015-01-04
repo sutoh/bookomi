@@ -1,0 +1,14 @@
+<% content_for(:header) do %>
+  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+<div class="tw-container">
+  <% @tweet.image_urls.split(',').each do |image_url| %>
+  <%= render partial: 'embed', locals: { tweet: @tweet } %>
+    <img src="<%=image_url%>" width="400">
+  <% end %>
+
+</div>
+
+<%= link_to 'Back', tweets_path %>
