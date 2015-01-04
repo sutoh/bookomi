@@ -5,10 +5,9 @@
 <p id="notice"><%= notice %></p>
 <div class="tw-container">
   <% @tweet.image_urls.split(',').each do |image_url| %>
-  <%= render partial: 'embed', locals: { tweet: @tweet } %>
     <img src="<%=image_url%>" width="400">
+    <%= render partial: 'embed', locals: { tweet: @tweet } %>
   <% end %>
-
 </div>
 
 <%= link_to 'Back', tweets_path %>
