@@ -1,28 +1,31 @@
 class MangasController < ApplicationController
-  before_action :set_manga, only: [:tag_create]
+  before_action :set_manga, only: [:tag_create, :tag]
   # GET /mangas
   # GET /mangas.json
   def index
     @mangas = Manga.all
   end
 
+  def tag
+  end
+
   # POST /mangas
   # POST /mangas.json
   def tag_create
-    #@manga = Manga.new(manga_params)
+    @manga.tags << Tag.new(tag_params)
     respond_to do |format|
       if @manga.save
-        format.html { redirect_to @manga, notice: 'Manga was successfully created.' }
-      else
-        format.html { redirect_to root_path }
+        format.json { render :tag }
+        format.json { render :tag, status: :created, location: @manga }
       end
     end
   end
   private
-    def set_tweet
-      @tweet = Manga.find(params[:id])
+    def set_manga
+      @manga = Manga.find(params[:id])
     end
-    def manga_params
-      params.require(:manga).permit(:name)
+
+    def tag_params
+      params.require(:manga).require(:tag).permit(:name)
     end
 end

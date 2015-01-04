@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :mangas
+  resources :mangas do
+    member do
+      post 'tag_create'
+    end
+  end
 
   resources :tweets do
     member do
