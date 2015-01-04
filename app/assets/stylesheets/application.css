@@ -22,15 +22,15 @@ header{
   text-align : center;
   font-family: 'mofuji';
   font-size: 40px;
-  color : #fff;
+  color : #ff6600;
 }
 
 header a{
-    color:#fff;
+  color : #ff6600;
 }
 header a:link {
-    color:#fff;
+  color : #ff6600;
 }
 header a:visited {
-    color:#fff;
+  color : #ff6600;
 }

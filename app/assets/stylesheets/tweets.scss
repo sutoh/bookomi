@@ -12,31 +12,32 @@
     position: fixed;
     bottom: 10px;
     text-align: center;
-    border-radius: 30px;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
     background-color : #36465D;
-    font-size : 30px;
+    font-size : 20px;
     float : left;
     width : 140px;
     left:50%;
     margin-left:-70px;
-    border: 1px solid #000000;
+    border: 3px solid #fff;
     z-index: 9999;
-    color : #fff;    
+    color : #fff; 
+    text-decoration: none;
+    filter:alpha(opacity=80);
+    -moz-opacity: 0.8;
+    opacity: 0.8;
 }
 
 .float-post:link {
     color:#fff;
+    text-decoration: none;
 }
 .float-post:visited {
     color:#fff;
+    text-decoration: none;
 }
-
-
-
-
-
 
 
 .tw-container{
@@ -63,35 +64,39 @@
 }
 
 .tw-info{
-  background-color: #EBF0F3;
+  background-color: #F8F4EF;
   float: left;
   width: 100%;
   margin-top : 10px;
 }
 
-.tw-item {
-  clear: both;
-  width: 100%;
-  border: none;
-  margin: 0 auto 0 auto;
-}
-
 .tw-info .name{
+  margin-left : 2%;
+background-color : red;
+
   float : left;
+  width : 50%;
   font-size : 12px;
   color : #B1BBC3;
   list-style:none;
 }
 .tw-info .id{
   float : left;
+  width : 50%;
   padding-left : 10px;
-  font-size : 16px;
+  font-size : 12px;
   color : #B1BBC3;
   list-style:none;
   }
 
 .tw-info .post-date{
+
+
+background-color : red;
+
+
   float : left;
+  width : 100%;
   font-size : 12px;
   color : #B1BBC3;
   list-style:none;
@@ -104,7 +109,7 @@
   width : 100%;
   margin-top : 20px;
   margin-bottom : 20px;
-  font-size : 30px;
+  font-size : 20px;
 }
 
 .detail-link a{
