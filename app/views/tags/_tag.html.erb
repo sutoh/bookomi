@@ -4,7 +4,7 @@
     <td><div id="tag-block">
       <ul class="tag-list">
         <% tweet.manga.tags.each do |tag| %><li><%= tag.name %></li><% end %>
-        <li><%= render partial: 'tag_form', locals: { manga: tweet.manga } %></li>
+        <li><%= render partial: 'tags/tag_form', locals: { manga: tweet.manga } %></li>
       </ul>
     </div></td>
   </tr></tbody></table>
