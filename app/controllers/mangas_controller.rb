@@ -13,12 +13,14 @@ class MangasController < ApplicationController
   # POST /mangas.json
   def tag_create
     tag = Tag.find_by(name: tag_params["name"])
-    @manga.tags.push tag.blank? ? Tag.new(tag_params) : tag
-    respond_to do |format|
+    begin
+      @manga.tags.push tag.blank? ? Tag.new(tag_params) : tag
       if @manga.save
-        format.js { render :tag }
-        format.json { render :tag, status: :created, location: @manga }
+        render :tag
       end
+    rescue => e
+      @error = e.to_s
+      render :tag_error
     end
   end
 
