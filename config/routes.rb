@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :mangas do
     member do
       post 'tag_create'
+      delete 'tag_destroy'
     end
   end
 

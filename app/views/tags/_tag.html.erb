@@ -3,7 +3,9 @@
     <td class="first-info"><div class="tip common-black">登録タグ<div></td>
     <td><div id="tag-block">
       <ul class="tag-list">
-        <% tweet.manga.tags.each do |tag| %><li><%= tag.name %></li><% end %>
+        <% tweet.manga.tags.each do |tag| %>
+          <li><%= link_to tag.name, tag_destroy_manga_path(tweet.manga, tag: tag), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></li>
+        <% end %>
         <li><%= render partial: 'tags/tag_form', locals: { manga: tweet.manga } %></li>
       </ul>
     </div></td>

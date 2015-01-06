@@ -1,5 +1,5 @@
 class MangasController < ApplicationController
-  before_action :set_manga, only: [:tag_create, :tag]
+  before_action :set_manga, only: [:tag_create, :tag, :tag_destroy]
   # GET /mangas
   # GET /mangas.json
   def index
@@ -22,6 +22,14 @@ class MangasController < ApplicationController
       @error = e.to_s
       render :tag_error
     end
+  end
+
+  # DELETE /mangas/:id/tag_destroy
+  def tag_destroy
+    MangaTag.where({
+      tag_id: params[:tag],
+      manga_id: params[:id]}).destroy_all
+    render :tag
   end
 
   private

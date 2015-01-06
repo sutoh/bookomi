@@ -10,4 +10,5 @@ class MangaTag < ActiveRecord::Base
     end
   end
 
+
 end
