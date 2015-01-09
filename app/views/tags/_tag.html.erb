@@ -1,13 +1,19 @@
 <div class="tag-area">
   <table><tbody><tr>
-    <td class="first-info"><div class="tip common-black">登録タグ<div></td>
+    <td class="first-info">
+      <div class="tip common-black">登録タグ<div>
+      <button class="btn" onclick="window.location.href='#tag-modal'" type="button" data-toggle="modal" data-target="#tag-modal">モ</button>
+    </td>
     <td><div id="tag-block">
       <ul class="tag-list">
         <% tweet.manga.tags.each do |tag| %>
-          <li><%= link_to tag.name, tag_destroy_manga_path(tweet.manga, tag: tag), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></li>
+          <li><%= link_to tag.name, tag_destroy_manga_path(tweet.manga, tag: tag), method: :delete, remote: true %></li>
         <% end %>
-        <li><%= render partial: 'tags/tag_form', locals: { manga: tweet.manga } %></li>
       </ul>
     </div></td>
   </tr></tbody></table>
 </div>
+
+<% content_for(:modal) do %>
+  <%= render partial: 'tags/tag_form', locals: { manga: tweet.manga } %>
+<% end %>

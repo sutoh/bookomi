@@ -1,7 +1,0 @@
-<div id="result"></div>
-<%= form_for(manga, :url=> {controller: 'mangas', action: 'tag_create'}, :method => :post, :remote => true, format: :json) do |f| %>
-  <%= f.fields_for manga.tags do |f_tag| %>
-    <%= f_tag.text_field :name %>
-  <% end %>
-  <%= f.submit "+" %>
-<% end %>
