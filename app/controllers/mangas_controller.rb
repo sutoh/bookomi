@@ -26,8 +26,9 @@ class MangasController < ApplicationController
 
   # DELETE /mangas/:id/tag_destroy
   def tag_destroy
+    tag_id = Tag.friendly.find(params[:tag]).id
     MangaTag.where({
-      tag_id: params[:tag],
+      tag_id: tag_id,
       manga_id: params[:id]}).destroy_all
     render :tag
   end

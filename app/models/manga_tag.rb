@@ -5,7 +5,7 @@ class MangaTag < ActiveRecord::Base
 
   # 既に登録済みのパターン(TagにもMangaTagsにも登録済み)
   def valid_relation_uniq
-    if Tag.joins(:mangas).find_by(tags: {id: tag_id})
+    if MangaTag.find_by(tag_id: tag_id, manga_id: manga_id)
       errors.add(:uniqs, '既に登録済みのタグを2重で登録しようとしています。')
     end
   end
