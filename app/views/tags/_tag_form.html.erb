@@ -7,15 +7,17 @@
           <h4 class="modal-title" id="exampleModalLabel">タグ登録</h4>
         </div>
         <div class="modal-body">
-            <div class="form-group">
-              <%= f.fields_for manga.tags do |f_tag| %>
-                <%= f_tag.text_field :name, value: '', class: 'form-control' %>
-              <% end %>
-            </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <%= f.submit "Add Tag", class: 'btn btn-primary' %>
+          <div class="form-group col-xs-7 col-sm-8">
+            <%= f.fields_for manga.tags do |f_tag| %>
+              <%= f_tag.text_field :name, value: '', class: 'form-control' %>
+            <% end %>
+          </div>
+          <div class="form-submit col-xs-7 col-sm-4">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <%= f.submit "Add Tag", class: 'btn btn-primary' %>
+          </div>
         </div>
       </div>
     <% end %>
