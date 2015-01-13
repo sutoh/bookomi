@@ -1,14 +1,24 @@
 <div class="modal fade" id="tag-modal">
   <div class="modal-dialog">
-    <%= form_for(manga, :url=> {controller: 'mangas', action: 'tag_create'}, :method => :post, :remote => true, format: :json) do |f| %>
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="exampleModalLabel">タグ登録</h4>
-        </div>
-        <div class="modal-body">
-        </div>
-        <div class="modal-footer">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">タグ登録</h4>
+      </div>
+      <div class="modal-body">
+        <ul id="modal-tag-lists">
+          <% manga.tags.each do |tag| %>
+            <li>
+              <%= link_to tag_destroy_manga_path(manga, tag: tag), method: :delete, remote: true do %>
+                <i class="fa fa-trash-o"></i>
+              <% end %>
+              <%=tag.name%>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <%= form_for(manga, :url=> {controller: 'mangas', action: 'tag_create'}, :method => :post, :remote => true, format: :json) do |f| %>
           <div class="form-group col-xs-7 col-sm-8">
             <%= f.fields_for manga.tags do |f_tag| %>
               <%= f_tag.text_field :name, value: '', class: 'form-control' %>
@@ -18,8 +28,8 @@
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <%= f.submit "Add Tag", class: 'btn btn-primary' %>
           </div>
-        </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
