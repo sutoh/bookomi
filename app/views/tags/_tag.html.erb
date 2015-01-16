@@ -10,7 +10,7 @@
     <td><div id="tag-block">
       <ul class="tag-list">
         <% tweet.manga.tags.each do |tag| %>
-          <li><%= link_to tag.name, tag_destroy_manga_path(tweet.manga, tag: tag), method: :delete, remote: true %></li>
+          <li><%= link_to tag.name, tag_path(tag) %></li>
         <% end %>
       </ul>
     </div></td>

@@ -9,24 +9,20 @@
         <ul id="modal-tag-lists">
           <% manga.tags.each do |tag| %>
             <li>
-              <%= link_to tag_destroy_manga_path(manga, tag: tag), method: :delete, remote: true do %>
-                <i class="fa fa-trash-o"></i>
-              <% end %>
-              <%=tag.name%>
+              <%= link_to tag_destroy_manga_path(manga, tag: tag), method: :delete, remote: true do %><i class="fa fa-trash-o"></i><% end %><span><%=tag.name%></span>
             </li>
           <% end %>
         </ul>
       </div>
       <div class="modal-footer">
         <%= form_for(manga, :url=> {controller: 'mangas', action: 'tag_create'}, :method => :post, :remote => true, format: :json) do |f| %>
-          <div class="form-group col-xs-7 col-sm-8">
+          <div class="form-group col-xs-9">
             <%= f.fields_for manga.tags do |f_tag| %>
               <%= f_tag.text_field :name, value: '', class: 'form-control' %>
             <% end %>
           </div>
-          <div class="form-submit col-xs-7 col-sm-4">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <%= f.submit "Add Tag", class: 'btn btn-primary' %>
+          <div class="form-submit col-xs-3">
+            <%= f.submit "Add", class: 'btn btn-primary ' %>
           </div>
         <% end %>
       </div>

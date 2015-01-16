@@ -3,9 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
   $(".edit_manga").on("ajax:success", (xhr, data, status) ->
+    $('#tag-block>.tag-list li').remove()
+    $('ul#modal-tag-lists li').remove()
     data.forEach( (obj)->
-      $('#tag-block>.tag-list').html("<li><a href='+ obj.show_url +'>+ obj.name +</a></li>");
-      $('ul#modal-tag-lists').html("<li><a data-remote='true' rel='nofollow' data-method='delete' href='+data.delete_url+'><i class='fa fa-trash-o'></i></a></li>")
+      modal = "<li><a href='" + obj.show_url + "'>" + obj.name + "</a></li>"
+      $('#tag-block>.tag-list').append(modal)
+      tags = "<li><a data-remote='true' rel='nofollow' data-method='delete' href='"+obj.delete_url+"'><i class='fa fa-trash-o'></i></a><span>" + obj.name + "</span></li>"
+      $('ul#modal-tag-lists').append(tags)
       console.log "Success"
     )
   )
