@@ -1,6 +1,6 @@
 class CreateTweets < ActiveRecord::Migration
   def change
-    create_table :tweets do |t|
+    create_table :tweets, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
       t.references :manga, index: true
       t.string :tweet_id
       t.text :image_urls

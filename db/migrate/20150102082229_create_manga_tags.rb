@@ -1,6 +1,6 @@
 class CreateMangaTags < ActiveRecord::Migration
   def change
-    create_table :manga_tags do |t|
+    create_table :manga_tags, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
       t.references :manga, index: true
       t.references :tag, index: true
 
