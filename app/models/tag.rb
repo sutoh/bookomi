@@ -5,4 +5,7 @@ class Tag < ActiveRecord::Base
   has_many :mangas, :through => :manga_tags
 
   validates :name, presence: true
+  def normalize_friendly_id(string)
+    string.gsub(/[\.\s]/, "-")
+  end
 end
