@@ -6,24 +6,8 @@
 <div id="result-word" class="result-word">
   <%= @tag.try(:name) %>
 </div>
-<div class="tw-container">
+<div class="container">
   <% @tag.mangas.each do |manga| %>
-    <ul class="tw-info">
-      <li class="post-date"><%= distance_of_time_in_words_to_now(manga.tweet.tweeted_at) %>前 (<%= manga.tweet.tweeted_at %>)</li>
-    </ul>
-
-    <% unless manga.tweet.image_urls.empty? %>
-      <img src="<%= manga.tweet.image_urls.split(',').first %>":>
-    <% end %>
-
-    <%= render partial: 'tweets/embed', locals: { tweet: manga.tweet } %>
-
-    <div class="detail-link"><%= link_to ' 詳しく >>', manga.tweet %></div>
-    <ul class="tw-info">
-      <li class="name"><%= manga.tweet.user_name %></li>
-      <li class="id">
-        <a href="https://twitter.com/<%= manga.tweet.screen_name %>">@<%= manga.tweet.screen_name %></a>
-      </li>
-    </ul>
+    <%= render partial: 'shared/tweet_content', locals: { tweet: manga.tweet } %> 
   <% end %>
 </div>
