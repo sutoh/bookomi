@@ -15,7 +15,11 @@
         </ul>
       </div>
       <div class="modal-footer">
-        <%= form_for(manga, :url=> {controller: 'mangas', action: 'tag_create'}, :method => :post, :remote => true, format: :json) do |f| %>
+        <%= form_for(manga, :url=> {
+              controller: 'mangas',
+              action: 'tag_create',
+              id: manga.id
+            }, :method => :post, :remote => true, format: :json) do |f| %>
           <div class="form-group col-xs-9">
             <%= f.fields_for manga.tags do |f_tag| %>
               <%= f_tag.text_field :name, value: '', class: 'form-control' %>

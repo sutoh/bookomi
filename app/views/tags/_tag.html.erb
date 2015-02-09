@@ -2,9 +2,11 @@
   <table><tbody><tr>
     <td class="first-info">
       <div class="tip common-black"><span>登録タグ</span>
-        <a class="btn btn-default btn-xs" href='#tag-modal' data-placement="left" data-toggle="modal" data-target="#tag-modal">
-          <i class="fa fa-tags"></i>
-        </a>
+        <% if defined? isform %>
+          <a class="btn btn-default btn-xs" href='#tag-modal' data-placement="left" data-toggle="modal" data-target="#tag-modal">
+            <i class="fa fa-tags"></i>
+          </a>
+        <% end %>
       </div>
     </td>
     <td><div id="tag-block">
@@ -16,7 +18,8 @@
     </div></td>
   </tr></tbody></table>
 </div>
-
-<% content_for(:modal) do %>
-  <%= render partial: 'tags/tag_form', locals: { manga: tweet.manga } %>
+<% if defined? isform %>
+  <% content_for(:modal) do %>
+    <%= render partial: 'tags/tag_form', locals: { manga: tweet.manga } %>
+  <% end %>
 <% end %>
