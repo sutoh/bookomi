@@ -4,9 +4,9 @@
 
 <p id="notice"><%= notice %></p>
 <div class="tw-container">
-  <%= render partial: 'tags/tag', locals: { tweet: @tweet } %>
+  <%= render partial: 'tags/tag', locals: { tweet: @tweet, isform: true } %>
   <% @tweet.image_urls.split(',').each do |image_url| %>
     <img src="<%=image_url%>" width="400">
   <% end %>
-  <%= render partial: 'embed', locals: { tweet: @tweet } %>
+  <%= render partial: 'shared/embed', locals: { tweet: @tweet } %>
 </div>

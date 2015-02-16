@@ -3,9 +3,11 @@
     <%= @error %>
   </div>
 <% end %>
-<%= @tag.try(:name) %>
-<ul>
+<div id="result-word" class="result-word">
+  <%= @tag.try(:name) %>
+</div>
+<div class="container">
   <% @tag.mangas.each do |manga| %>
-    <li><%= link_to manga.tweet.tweet_id, tweet_path(manga.tweet.id) %></li>
+    <%= render partial: 'shared/tweet_content', locals: { tweet: manga.tweet } %> 
   <% end %>
-</ul>
+</div>
