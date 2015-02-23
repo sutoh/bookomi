@@ -6,7 +6,7 @@
 <div id="result-word" class="result-word">
   <%= @tag.try(:name) %>
 </div>
-<div class="container">
+<div id="container">
   <% @tag.mangas.each do |manga| %>
     <%= render partial: 'shared/tweet_content', locals: { tweet: manga.tweet } %> 
   <% end %>

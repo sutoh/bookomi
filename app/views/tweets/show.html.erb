@@ -3,10 +3,15 @@
 <% end %>
 
 <p id="notice"><%= notice %></p>
-<div class="tw-container">
-  <%= render partial: 'tags/tag', locals: { tweet: @tweet, isform: true } %>
-  <% @tweet.image_urls.split(',').each do |image_url| %>
-    <img src="<%=image_url%>" width="400">
-  <% end %>
-  <%= render partial: 'shared/embed', locals: { tweet: @tweet } %>
+<div id="container">
+  <div class="tw-container">
+    <ul class="tw-info">
+      <li class="post-date"><%= distance_of_time_in_words_to_now(@tweet.tweeted_at) %>前</li>
+    </ul>
+    <%= render partial: 'tags/tag', locals: { tweet: @tweet, isform: true } %>
+    <% @tweet.image_urls.split(',').each do |image_url| %>
+      <img src="<%=image_url%>" width="400">
+    <% end %>
+    <%= render partial: 'shared/embed', locals: { tweet: @tweet } %>
+  </div>
 </div>

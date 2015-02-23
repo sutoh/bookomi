@@ -17,3 +17,4 @@ $(document).ready ->
     console.log "error"
     console.log data
   )
+

@@ -34,48 +34,49 @@ ul, li {
 }
 .tip {
   color: #fff;
-  border-radius: 4px;
   font-size: 12px;
+  border-radius: 4px;
   padding: 2px 0;
   padding-right: 2px;
   margin: 2px;
   width: 48px;
-  line-height: 12px;
   text-align: center;
   cursor: default;
   display: inline-block;
   background-color: #373737;
 }
-
+.tip a , .tip a:link, .tip a:visited {
+  color: #fff;
+  font-size: 11px;
+}
 
 /* tag link*/
 a.tag,
 a.tag:link{
-    color:#000;
-    text-decoration:underline;
+  color:#000;
+  text-decoration:underline;
 }
 
 /* tag-area */
-.tag-area {
-  margin: 1em auto;
-}
+.tag-area {}
 #tag-block {
   margin-left: 1em;
 }
 .tag-list li {
   float: left;
-  padding: 2px 8px 4px 0;
+  padding: 0 5px 0 0;
   white-space: nowrap;
 }
 .tag-list li a {
   position: relative;
   background-color: #fff;
   color: #ff6600;
-  font-size: 13px;
+  font-size: 12px;
+  font-family: メイリオ, Meiryo, verdana, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   border: 3px solid #fff;
   text-decoration: none;
   opacity: 0.8;
-  padding: 0px 10px;
+  padding: 0px 10px 0 5px;
   line-height: 28px;
   vertical-align: middle;
 }
@@ -84,7 +85,7 @@ a.tag:link{
   position: absolute;
   top: -3px;
   right: -3px;
-  border-width: 0px 8px 8px 0px;
+  border-width: 0px 8px 9px 0px;
   border-style: solid;
   border-color: #ff6600 #eee;
 }

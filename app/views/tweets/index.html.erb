@@ -2,7 +2,8 @@
   <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 <% end %>
 <p id="notice"><%= notice %></p>
-<div class="container">
+
+<div id="container">
   <% @tweets.each do |tweet| %>
     <%= render partial: 'shared/tweet_content', locals: { tweet: tweet } %> 
   <% end %>

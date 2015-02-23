@@ -1,11 +1,13 @@
 <div class="tag-area">
   <table><tbody><tr>
     <td class="first-info">
-      <div class="tip common-black"><span>登録タグ</span>
+      <div class="tip common-black">
         <% if defined? isform %>
-          <a class="btn btn-default btn-xs" href='#tag-modal' data-placement="left" data-toggle="modal" data-target="#tag-modal">
-            <i class="fa fa-tags"></i>
+          <a class="" href='#tag-modal' data-placement="left" data-toggle="modal" data-target="#tag-modal">
+            <span>タグ<i class="glyphicon glyphicon-plus"></i></span>
           </a>
+        <% else %>
+          <span>タグ</span>
         <% end %>
       </div>
     </td>

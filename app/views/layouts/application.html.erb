@@ -12,8 +12,9 @@
 <body>
 
 <header><%= link_to 'Bookomi', root_path %></header>
-
-<%= yield %>
+<div id="wrapper" class="container">
+  <%= yield %>
+</div>
 
 <%= yield :modal %>
 <footer id="footer" class="mh_footer">
