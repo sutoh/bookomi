@@ -1,7 +1,7 @@
 class Tweet < ActiveRecord::Base
   belongs_to :manga
   paginates_per 50
-  validates :tweet_id, presence: true
+  validates :tweet_id, presence: true, uniqueness: true
 
   def self.build_image(tweet)
     tweet_id  = tweet["tweet_id"].scan(/\/status\/(\d*)/).flatten.first
