@@ -44,7 +44,7 @@
 .tw-container{
   float: left;
   clear: both;
-  width: 96%;
+  width: 100%;
   max-width: 400px;
   min-width: 220px;
   margin: 10px auto 0 auto;
@@ -66,12 +66,14 @@
 }
 
 .tw-container img {
-  width: 372px;
+  width: 100%;
   margin: 10px 0 0 0;
   border-radius: 5px;
   border-color: rgb(238, 238, 238) rgb(221, 221, 221) rgb(187, 187, 187);
   border-width: 1px;
   border-style: solid;
+  max-width: 400px;
+  min-width: 280px;
   box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 3px;
 }
 
@@ -187,6 +189,7 @@ ul.tags li{
 }
 
 #container {
-  width: 400px;  
+  max-width: 400px;  
+  min-width: 280px;  
   margin: 0 auto;  
 }
