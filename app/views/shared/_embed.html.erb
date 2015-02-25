@@ -1,3 +1,6 @@
+<% content_for(:header) do %>
+  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<% end %>
 <div class="tw-item">
   <blockquote class="twitter-tweet" <%="data-cards=hidden" unless tweet.image_urls.empty?%> lang="ja">
     <p><%= tweet.tweet %></p> &mdash; <%=tweet.user_name %> (@<%=tweet.screen_name%>)

@@ -17,6 +17,10 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
   end
 
+  def user
+    @tweets = Tweet.where(screen_name: params[:screen_name]).order("created_at DESC").page params[:page]
+  end
+
   # POST /tweets
   # POST /tweets.json
   def create

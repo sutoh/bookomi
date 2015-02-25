@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<div id="container">
+  <% @tweets.each do |tweet| %>
+    <%= render partial: 'shared/tweet_content', locals: { tweet: tweet } %> 
+  <% end %>
+</div>
+
+<%= paginate @tweets %>
+
+<%= link_to '投稿する', new_tweet_path, :class => 'float-post' %>

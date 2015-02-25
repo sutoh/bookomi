@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :tweets do
     collection do
-      get 'user/:screen_name'
+      get 'user/:screen_name', to: 'tweets#user', as: 'user'
     end
   end
 
