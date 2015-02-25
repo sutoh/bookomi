@@ -17,20 +17,6 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
   end
 
-  # POST /tweet/:id/tag_create
-  def tag_create
-    @tweet.manga.tags(tag_params)
-    respond_to do |format|
-      if @tweet.save
-        format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
-        format.json { render :show, status: :created, location: @tweet }
-      else
-        format.html { render :new }
-        format.json { render json: @tweet.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # POST /tweets
   # POST /tweets.json
   def create

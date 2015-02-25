@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   end
 
   resources :tweets do
-    member do
-      post 'tag_create'
+    collection do
+      get 'user/:screen_name'
     end
   end
 
