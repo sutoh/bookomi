@@ -1,4 +1,3 @@
-require 'httpclient'
 class Tweet < ActiveRecord::Base
   belongs_to :manga
   paginates_per 50
@@ -16,9 +15,11 @@ class Tweet < ActiveRecord::Base
     tweet["image_urls"] = status.media.map{|m| m.media_url.to_s}.join(',')
     backup = status.media.map do |m|
       imgur(m.media_url.to_s)
-    end.join(',')
-    tweet["backup_image_urls"] = backup
-    tweet["backup_deletes"] = backup
+    end
+
+    binding.pry
+    tweet["backup_image_urls"] = backup.map{|m| m[:link].to_s}.join(',')
+    tweet["backup_deletes"] = backup.map{|m| m[:deletehash].to_s}.join(',')
 
     tweet["user_name"] = status.user.name
     tweet["screen_name"] = status.user.screen_name
@@ -40,17 +41,20 @@ class Tweet < ActiveRecord::Base
   end
 
   def self.imgur(imgurl)
-    url = 'https://api.imgur.com/3/image'
-    http_client = HTTPClient.new
+    conn = Faraday.new
     config = {
       client_id: IMGUR_CLIENT_ID,
       client_secret: IMGUR_CLIENT_SECRET
     }
-    auth_header = { Authorization: "Client-ID #{config[:client_id]}" }
-    body = { image: imgurl }
-    res = http_client.post(URI.parse(url), body, auth_header)
+    res = conn.post 'https://api.imgur.com/3/image' do |request|
+      request.headers = {Authorization: "Client-ID #{config[:client_id]}"}
+      request.body = {image: imgurl}
+    end
     result_hash = ActiveSupport::JSON.decode(res.body)
-    return result_hash["data"]["link"]
+    return {
+      link: result_hash["data"]["link"],
+      deletehash: result_hash["data"]["deletehash"]
+    }
   end
 
 end
