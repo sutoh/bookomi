@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
-gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -13,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 group :production do
+gem 'mysql2'
   gem 'execjs'
   gem 'therubyracer', platforms: :ruby
   gem 'multi_json', '1.7.8' 
@@ -37,6 +36,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   #gem 'byebug'
   gem 'pry-rails'
@@ -57,3 +57,6 @@ gem 'twitter'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'friendly_id'
+gem 'acts_in_relation'
+gem 'httpclient'
+gem 'httpclient'

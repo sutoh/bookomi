@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150112061738) do
+ActiveRecord::Schema.define(version: 20150306011926) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
-    t.string   "slug",           limit: 255, null: false
-    t.integer  "sluggable_id",   limit: 4,   null: false
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
     t.string   "sluggable_type", limit: 50
-    t.string   "scope",          limit: 255
+    t.string   "scope"
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "manga_tags", force: :cascade do |t|
     t.integer  "manga_id",   limit: 4
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20150112061738) do
     t.datetime "updated_at",           null: false
   end
 
-  add_index "manga_tags", ["manga_id"], name: "index_manga_tags_on_manga_id", using: :btree
-  add_index "manga_tags", ["tag_id"], name: "index_manga_tags_on_tag_id", using: :btree
+  add_index "manga_tags", ["manga_id"], name: "index_manga_tags_on_manga_id"
+  add_index "manga_tags", ["tag_id"], name: "index_manga_tags_on_tag_id"
 
   create_table "mangas", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -42,27 +42,27 @@ ActiveRecord::Schema.define(version: 20150112061738) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "slug",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tweets", force: :cascade do |t|
-    t.integer  "manga_id",    limit: 4
-    t.string   "tweet_id",    limit: 255
-    t.text     "image_urls",  limit: 65535
-    t.string   "user_name",   limit: 255
-    t.string   "screen_name", limit: 255
-    t.text     "tweet",       limit: 65535
+    t.integer  "manga_id",          limit: 4
+    t.string   "tweet_id",          limit: 255
+    t.text     "image_urls",        limit: 65535
+    t.string   "user_name",         limit: 255
+    t.string   "screen_name",       limit: 255
+    t.text     "tweet",             limit: 65535
     t.datetime "tweeted_at"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.text     "backup_image_urls"
+    t.text     "backup_deletes"
   end
 
-  add_index "tweets", ["manga_id"], name: "index_tweets_on_manga_id", using: :btree
+  add_index "tweets", ["manga_id"], name: "index_tweets_on_manga_id"
+  add_index "tweets", ["tweet_id"], name: "index_tweets_on_tweet_id", unique: true
 
-  add_foreign_key "manga_tags", "mangas"
-  add_foreign_key "manga_tags", "tags"
-  add_foreign_key "tweets", "mangas"
 end
