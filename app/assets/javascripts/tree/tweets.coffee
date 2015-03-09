@@ -11,10 +11,16 @@ $(document).ready ->
       tags = "<li><a data-remote='true' rel='nofollow' data-method='delete' href='"+obj.delete_url+"'><i class='fa fa-trash-o'></i></a><span>" + obj.name + "</span></li>"
       $('ul#modal-tag-lists').append(tags)
       console.log "Success"
+      return
     )
   )
-  $(".edit_manga").on("ajax:error", (xhr, data, status) ->
-    console.log "error"
-    console.log data
+  $(".tw-img").on('error', () ->
+      $(this).attr(
+        src: this.nextElementSibling.value
+      )
+      return
   )
-
+  $(".tw-img").on('load', () ->
+    this.parentElement.removeChild(this.nextElementSibling)
+  )
+  return

@@ -6,6 +6,7 @@
   <%= render partial: 'tags/tag', locals: { tweet: tweet } %>
   <% unless tweet.image_urls.empty? %>
     <img class="tw-img" src="<%= tweet.image_urls.split(',').first %>">
+    <input class="tw-backup-img" value="<%= tweet.backup_image_urls.try(:split, ',').try(:first) %>" type="hidden">
   <% end %>
 
   <%= render partial: 'shared/embed', locals: { tweet: tweet } %>
