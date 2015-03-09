@@ -6,7 +6,7 @@
     </ul>
     <%= render partial: 'tags/tag', locals: { tweet: @tweet, isform: true } %>
     <% @tweet.image_urls.split(',').each do |image_url| %>
-      <img src="<%=image_url%>" width="400">
+      <img src="<%=image_url%>" width="375px">
     <% end %>
     <%= render partial: 'shared/embed', locals: { tweet: @tweet } %>
   </div>

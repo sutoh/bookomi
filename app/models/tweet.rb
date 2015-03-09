@@ -18,6 +18,7 @@ class Tweet < ActiveRecord::Base
     end
 
     tweet["backup_image_urls"] = backup.map{|m| m[:link].to_s}.join(',')
+    # http://imgur.com/delete/**
     tweet["backup_deletes"] = backup.map{|m| m[:deletehash].to_s}.join(',')
 
     tweet["user_name"] = status.user.name
