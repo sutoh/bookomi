@@ -5,7 +5,7 @@
 
   <%= render partial: 'tags/tag', locals: { tweet: tweet } %>
   <% unless tweet.image_urls.empty? %>
-    <img src="<%= tweet.image_urls.split(',').first %>" width="372px">
+    <img class="tw-img" src="<%= tweet.image_urls.split(',').first %>">
   <% end %>
 
   <%= render partial: 'shared/embed', locals: { tweet: tweet } %>
