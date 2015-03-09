@@ -17,7 +17,6 @@ class Tweet < ActiveRecord::Base
       imgur(m.media_url.to_s)
     end
 
-    binding.pry
     tweet["backup_image_urls"] = backup.map{|m| m[:link].to_s}.join(',')
     tweet["backup_deletes"] = backup.map{|m| m[:deletehash].to_s}.join(',')
 
