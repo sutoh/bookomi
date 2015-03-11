@@ -1,0 +1,5 @@
+<% tweet.image_urls.try(:split, ',').each_with_index do |image_url, i| %>
+  <% break if(first_only && i != 0) %>
+  <img class="tw-img" src="<%=image_url%>">
+  <input class="tw-backup-img" value="<%= tweet.backup_image_urls.try(:split, ',')[i] %>" type="hidden">
+<% end %>

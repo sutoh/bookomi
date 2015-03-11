@@ -5,9 +5,9 @@
       <li class="post-date"><%= distance_of_time_in_words_to_now(@tweet.tweeted_at) %>前 (<%= @tweet.tweeted_at %>)</li>
     </ul>
     <%= render partial: 'tags/tag', locals: { tweet: @tweet, isform: true } %>
-    <% @tweet.image_urls.split(',').each do |image_url| %>
-      <img class="tw-img" src="<%=image_url%>">
-    <% end %>
+    <div class="tw-imgs">
+      <%= render partial: 'shared/tweet_img', locals: { tweet: @tweet, first_only: false } %>
+    </div>
     <%= render partial: 'shared/embed', locals: { tweet: @tweet } %>
   </div>
 </div>
