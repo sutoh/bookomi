@@ -27,7 +27,7 @@ class TweetsController < ApplicationController
     build_data = Tweet.build_image(tweet_params)
     @tweet = Tweet.new(build_data)
     @tweet.manga = Manga.new
-
+    @tweet.author = Author.create_with(screen_name: @tweet.screen_name).find_or_create_by(twitter_uid: @tweet.uid)
     respond_to do |format|
       if @tweet.save
         format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }

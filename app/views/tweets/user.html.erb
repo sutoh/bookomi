@@ -2,7 +2,7 @@
 
 <div id="container">
   <% @tweets.each do |tweet| %>
-    <%= render partial: 'shared/tweet_content', locals: { tweet: tweet } %> 
+    <%= render partial: 'shared/tweet_content', locals: { tweet: tweet, isform: false, first_only: false } %> 
   <% end %>
 </div>
 

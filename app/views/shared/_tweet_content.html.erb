@@ -3,8 +3,8 @@
     <li class="post-date"><%= distance_of_time_in_words_to_now(tweet.tweeted_at) %>前</li>
   </ul>
 
-  <%= render partial: 'tags/tag', locals: { tweet: tweet } %>
-  <%= render partial: 'shared/tweet_img', locals: { tweet: tweet, first_only: true } %>
+  <%= render partial: 'tags/tag', locals: { tweet: tweet, isform: isform } %>
+  <%= render partial: 'shared/tweet_img', locals: { tweet: tweet, first_only: first_only } %>
 
   <%= render partial: 'shared/embed', locals: { tweet: tweet } %>
 

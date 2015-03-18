@@ -1,5 +1,6 @@
 class Tweet < ActiveRecord::Base
   belongs_to :manga
+  belongs_to :author
   paginates_per 50
   validates :tweet_id, presence: true, uniqueness: true
 
@@ -21,6 +22,7 @@ class Tweet < ActiveRecord::Base
     # http://imgur.com/delete/**
     tweet["backup_deletes"] = backup.map{|m| m[:deletehash].to_s}.join(',')
 
+    tweet["uid"] = status.user.id
     tweet["user_name"] = status.user.name
     tweet["screen_name"] = status.user.screen_name
     tweet["tweet"] = status.text
