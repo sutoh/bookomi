@@ -18,7 +18,7 @@ class TweetsController < ApplicationController
   end
 
   def user
-    @tweets = Tweet.where(screen_name: params[:screen_name]).order("created_at DESC").page params[:page]
+    @tweets = Author.where(screen_name: params[:screen_name]).order("created_at DESC").page params[:page]
   end
 
   # POST /tweets

@@ -2,3 +2,5 @@
 <div id="container">
     <%= render partial: 'shared/tweet_content', locals: { tweet: @tweet, isform: true, first_only: false } %>
 </div>
+
+<%= link_to '投稿する', new_tweet_path, :class => 'float-post' %>
